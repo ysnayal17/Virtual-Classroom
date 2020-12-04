@@ -1,6 +1,6 @@
 {% extends 'lecture/base.html' %}
 {% block title %}Profile{% endblock %}
-{% load staticfiles %}
+{% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'lecture/css/sb-admin.css' %}" />
 
 
@@ -10,23 +10,23 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li class="#">
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="/"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li>
+                    {% comment %} <li>
                         <a href="#"><i class="fa fa-fw fa-th-list "></i> Attendance List</a>
-                    </li>
-                     <li>
+                    </li> {% endcomment %}
+                     {% comment %} <li>
                         <a href="#"><i class="fa fa-fw  fa-desktop"></i> Share Desktop</a>
-                    </li>
+                    </li> {% endcomment %}
                      <li>
-                        <a href="#"><i class="fa fa-fw  fa-comments"></i> Start Collaboration</a>
+                        <a href="{% url 'lecture:collaboration' %}"><i class="fa fa-fw  fa-comments"></i> Start Collaboration</a>
                     </li>
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-mortar-board"></i> Classroom <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
-                            <li>
+                            {% comment %} <li>
                                 <a href="#"><i class="fa fa-fw fa-mortar-board"></i> Whiteboard </a>
-                            </li>
+                            </li> {% endcomment %}
                             <li>
                                 <a href="#"><i class="fa fa-fw fa-file-video-o"></i> Video</a>
                             </li>
@@ -39,7 +39,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                        <a href="#"><i class="fa fa-fw fa-file"></i>My Students</a>
                     </li>
                 </ul>
             </div>

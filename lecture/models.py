@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class CoursePack(models.Model):
-	user = models.ForeignKey(User, default=1)
+	user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 	instructor = models.CharField(max_length=250)
 	course_title = models.CharField(max_length=500)
 	course_code = models.CharField(max_length=100)
@@ -50,3 +50,10 @@ class Evaluation(models.Model):
 		
 	def __str__(self):
 		return self.score
+
+# class Chats(models.Model):
+# 	user = models.CharField(max_length=100)
+# 	desc = models.TextField()
+
+# 	def __str__(self):
+# 		return self.user

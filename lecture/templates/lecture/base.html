@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	<title>{% block title %}FUL-VC{% endblock %}</title>
-	{% load staticfiles %}
+	<title>{% block title %}CLASSMEET{% endblock %}</title>
+	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'lecture/css/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'lecture/css/bootstrap.css' %}"/>
 	<link rel="stylesheet" type="text/css" href="{% static 'lecture/css/sb-admin.css' %}" />
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="{% url 'lecture:index' %}">FUL-VC</a>
+                <a class="navbar-brand" href="{% url 'lecture:index' %}">CLASSMEET</a>
             </div>
 
             <ul class="nav navbar-nav">

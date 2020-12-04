@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+from PIL import Image, ImageTk
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render
@@ -18,7 +19,7 @@ IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg', 'gif']
 
 
 def create_coursepack(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render(request, 'lecture/login.html')
     else:
         form = CoursePackForm(request.POST or None, request.FILES or None)
@@ -87,7 +88,7 @@ def create_podcast(request, course_id):
 
 
 def podcasts(request, filter_by):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render(request, 'lecture/login.html')
     else:
         try:
@@ -143,7 +144,7 @@ def favorite_course(request, course_id):
 
 
 def index(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render(request, 'lecture/login.html')
     else:
         courses = CoursePack.objects.filter(user=request.user)
@@ -169,7 +170,7 @@ def index(request):
 
 
 def detail(request, course_id):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return render(request, 'lecture/login.html')
     else:
         user = request.user
