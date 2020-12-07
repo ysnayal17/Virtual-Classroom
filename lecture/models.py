@@ -51,9 +51,9 @@ class Evaluation(models.Model):
 	def __str__(self):
 		return self.score
 
-# class Chats(models.Model):
-# 	user = models.CharField(max_length=100)
-# 	desc = models.TextField()
+class Chat(models.Model):
+	user = models.CharField(max_length=100)
+	desc = models.TextField()
 
-# 	def __str__(self):
-# 		return self.user
+	def __str__(self):
+		return self.user

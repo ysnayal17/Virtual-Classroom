@@ -41,13 +41,15 @@
 {% block page-wrap %}
     
         <div class="page-content" style="margin-top: 100px;">
+            {% for messages in chatobject %}
             <div class="message">
-              <img src="" class="avatar-slack">
+              <img src="url ('lecture/images/avatar5.png')" class="avatar-slack">
               <div class="message-body">
-                <h3>Uche <span>10:30 AM</span></h3>
-                <p>Hey guys don't forget to commit and push today's work. Congratz for today 👏👏👏 Awesome sprint. </p>
+                <h3>{{ messages.user }}<span>10:30 AM</span></h3>
+                <p>{{ messages.desc }}</p>
               </div>
             </div>
+            {% endfor %}
             {% comment %} <div class="message">
               <img src="url ('lecture/images/avatar5.png')" class="avatar-slack">
               <div class="message-body">
@@ -62,12 +64,15 @@
                 <p>Reminder <strong>@channel</strong> Having issues with updating my local machine with latest commit. Any help? .</p>
             </div>
             </div> {% endcomment %}
+            <form method="post" action="/collaboration">
+            {% csrf_token %}
             <div class="message" style="margin-top: 300px; margin-right: 20px; height: 40px; ">
                 <input type="text" name="desc" size="130" style="margin-right: 20px; position: sticky;" >
                 <button type="submit">
                     <a><span class="glyphicon glyphicon-direction"></span> Send </a>
                 </button>
             </div> 
+            </form>
         </div>   
         
 

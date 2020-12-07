@@ -9,7 +9,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .forms import CoursePackForm, PodcastForm, UserForm
-from .models import CoursePack, Podcast, Video, Pdf, Evaluation
+from .models import CoursePack, Podcast, Video, Pdf, Evaluation, Chat
 from lecture.forms import EvaluationForm
 
 
@@ -228,11 +228,17 @@ def desktop(request):
 
 
 def collaboration(request):
-    return render(request, 'lecture/collaboration.html')
+    if request.method == 'POST':
+        user = request.user.username
+        desc = request.POST['desc']
+        newchat = Chat(user = user, desc = desc)
+        newchat.save()
+        chatobject = Chat.objects.all()
+        return render(request, 'lecture/collaboration.html', {'chatobject': chatobject})
+    chatobject = Chat.objects.all()
+    return render(request, 'lecture/collaboration.html', {'chatobject': chatobject})
 
-
-        
-        
+     
 def evaluation(request):
     return render(request, 'lecture/evaluation.html')
 

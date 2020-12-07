@@ -20,6 +20,17 @@
     <script src="{% static 'lecture/js/main.js' %}"></script>
 
     <style>
+        img{
+            position: absolute;
+            right: 49px;
+            height: 250px;
+            width: 597px;
+        }
+        h4{
+            margin-left: 409px;
+            margin-top: 18px;
+            color: white;
+        }
         {% block style %}
         {% endblock style %}
     </style>
@@ -44,11 +55,13 @@
             <ul class="nav navbar-nav">
                 <li class="{% block register_active %}{% endblock %}"><a href="{% url 'lecture:register' %}">Register</a></li>
                 <li class="{% block login_active %}{% endblock %}"><a href="{% url 'lecture:login_user' %}">Log In</a></li>
+                <li><h4>SFIT</h4><li>
             </ul>
         </div>
-
     </div>
 </nav>
+ {% load static %}
+        <img src='{% static "A:\Mini Project\Virtual Classroom\Virtual-Classroom\lecture\static\lecture\images\download.jpg" %}'>
 {% block body %}
 {% endblock %}
 </body>
